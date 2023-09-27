@@ -95,8 +95,8 @@ app.put("/svr/students/:id",function(req,res) {
       let studentsArray = JSON.parse(data);
       let index = studentsArray.find((st) => st.id === id);
       if(index >= 0) {
-        let updatedStudent = {...studentsArray[index],...body};
-        studentsArray[index] = updatedStudent;
+        // let updatedStudent = {...studentsArray[index],...body};
+        studentsArray[index] = body;
         let data1 = JSON.stringify(studentsArray);
         fs.writeFile(fname,data1,function(err) {
           if(err) res.status(404).send(err);
